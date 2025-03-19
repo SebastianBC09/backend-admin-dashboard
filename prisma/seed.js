@@ -1,10 +1,13 @@
 import { PrismaClient } from "@prisma/client";
+import bcrypt from "bcryptjs";
+
 const prisma = new PrismaClient();
 
 async function main() {
   await prisma.typeProperty.deleteMany();
   await prisma.property.deleteMany();
   await prisma.type.deleteMany();
+  await prisma.user.deleteMany();
 
   const propertyData = [
     { name: 'Nombre', type: 'text' },
@@ -13,7 +16,6 @@ async function main() {
     { name: 'Dirección', type: 'text' },
     { name: 'Color Favorito', type: 'text' },
   ];
-
 
   const properties = await Promise.all(
     propertyData.map((prop) => prisma.property.create({ data: prop }))
@@ -49,6 +51,7 @@ async function main() {
         description: type.description,
       },
     });
+
     for (const propertyId of type.propertyIds) {
       await prisma.typeProperty.create({
         data: {
@@ -58,6 +61,26 @@ async function main() {
       });
     }
   }
+
+
+  const adminUser = await prisma.user.create({
+    data: {
+      name: 'Admin User',
+      email: 'admin@fortex.com',
+      password: await bcrypt.hash('adminpassword', 10),
+      role: 'ADMIN',
+    },
+  });
+
+
+  const testUser = await prisma.user.create({
+    data: {
+      name: 'Test User',
+      email: 'user@fortex.com',
+      password: await bcrypt.hash('userpassword', 10),
+      role: 'USER',
+    },
+  });
 
   console.log('Seed completado.');
 }
