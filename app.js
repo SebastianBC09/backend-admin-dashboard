@@ -1,9 +1,9 @@
 import express from 'express';
 import cors from 'cors';
-import authRoutes from './routes/authRoutes.js';
-import typeRoutes from './routes/typeRoutes.js';
-import propertyRoutes from './routes/propertyRoutes.js';
-import errorHandler from './middlewares/errorMiddleware.js';
+import authRoutes from "./src/routes/authRoutes.js";
+import typeRoutes from "./src/routes/typeRoutes.js";
+import propertyRoutes from "./src/routes/propertyRoutes.js";
+import errorHandler from "./src/middleware/errorMiddleware.js";
 
 const app = express();
 
