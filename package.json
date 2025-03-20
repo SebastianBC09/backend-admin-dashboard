@@ -4,8 +4,8 @@
   "description": "Backend para la prueba técnica de Fortex",
   "main": "server.js",
   "scripts": {
-    "dev": "nodemon src/index.js",
-    "start": "npx prisma migrate deploy && node src/index.js",
+    "dev": "nodemon src/server.js",
+    "start": "npx prisma migrate deploy && node src/server.js",
     "migrate": "prisma migrate dev --name init",
     "generate": "prisma generate",
     "seed": "node prisma/seed.js",
