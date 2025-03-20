@@ -1,5 +1,4 @@
 import { PrismaClient } from "@prisma/client";
-import bcrypt from "bcryptjs";
 
 const prisma = new PrismaClient();
 
@@ -61,26 +60,6 @@ async function main() {
       });
     }
   }
-
-
-  const adminUser = await prisma.user.create({
-    data: {
-      name: 'Admin User',
-      email: 'admin@fortex.com',
-      password: await bcrypt.hash('adminpassword', 10),
-      role: 'ADMIN',
-    },
-  });
-
-
-  const testUser = await prisma.user.create({
-    data: {
-      name: 'Test User',
-      email: 'user@fortex.com',
-      password: await bcrypt.hash('userpassword', 10),
-      role: 'USER',
-    },
-  });
 
   console.log('Seed completado.');
 }

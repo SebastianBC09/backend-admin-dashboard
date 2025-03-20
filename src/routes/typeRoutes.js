@@ -4,7 +4,6 @@ import authMiddleware from "../middleware/authMiddleware.js";
 
 const router = Router();
 
-
 router.get("/", authMiddleware, getAllTypes);
 router.get("/:id", authMiddleware, getTypeById);
 router.post("/", authMiddleware, createType);
