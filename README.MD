@@ -94,6 +94,7 @@ backend/
 │   ├── middlewares/         # Middleware de autenticación, manejo de errores, etc.
 │   ├── routes/              # Rutas de la API
 │   └── services/            # Lógica de negocio y utilidades
+│   └── utils/               # Funciones para construir y verificar el JWT
 ├── prisma/                  # Archivo schema.prisma y migraciones
 ├── .env                     # Variables de entorno
 ├── package.json             # Scripts y dependencias
@@ -112,7 +113,6 @@ backend/
 | **bcryptjs** | 3.0.2 | Librería para hash de contraseñas |
 | **cors** | 2.8.5 | Middleware para habilitar CORS |
 | **dotenv** | 16.4.7 | Carga de variables de entorno |
-| **express-validator** | 7.2.1 | Validación de datos en Express |
 
 ### DevDependencies
 | Dependencia | Versión | Descripción |
@@ -137,8 +137,7 @@ backend/
 | POST | `/api/types` | Crea un nuevo tipo | `{ name, properties: [] }` | `{ id, name, ... }` |
 | GET | `/api/types` | Lista todos los tipos | - | `[{ id, name, ... }]` |
 | GET | `/api/types/:id` | Obtiene un tipo por ID | `id` (path) | `{ id, name, ... }` |
-| PUT | `/api/types/:id` | Actualiza un tipo | `id` (path), `{ name, properties: [] }` | `{ id, name, ... }` |
-| DELETE | `/api/types/:id` | Elimina un tipo | `id` (path) | `{ message: "Tipo eliminado" }` |
+
 
 ### Propiedades
 
@@ -147,8 +146,6 @@ backend/
 | POST | `/api/properties` | Crea una nueva propiedad | `{ name, type }` | `{ id, name, ... }` |
 | GET | `/api/properties` | Lista todas las propiedades | - | `[{ id, name, ... }]` |
 | GET | `/api/properties/:id` | Obtiene una propiedad por ID | `id` (path) | `{ id, name, ... }` |
-| PUT | `/api/properties/:id` | Actualiza una propiedad | `id` (path), `{ name, type }` | `{ id, name, ... }` |
-| DELETE | `/api/properties/:id` | Elimina una propiedad | `id` (path) | `{ message: "Propiedad eliminada" }` |
 
 ## ⚙️ Configuración y Migraciones
 
