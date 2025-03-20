@@ -9,7 +9,7 @@
     "migrate": "prisma migrate dev --name init",
     "generate": "prisma generate",
     "seed": "node prisma/seed.js",
-    "build": "npx tsc",
+    "build": "npm run generate && npx prisma migrate deploy",
     "lint": "eslint . --fix",
     "format": "prettier --write ."
   },
