@@ -10,6 +10,7 @@
     "generate": "prisma generate",
     "seed": "node prisma/seed.js",
     "build": "npm run generate && npx prisma migrate deploy",
+    "postdeploy": "npx prisma migrate deploy && npx prisma generate",
     "lint": "eslint . --fix",
     "format": "prettier --write ."
   },
