@@ -206,6 +206,8 @@ npm run start
 * LinkedIn: [Sebastian B.](https://www.linkedin.com/in/sebastianballencastaneda-softwaredeveloper)
 * Email: sebastian.ballenc@gmail.com
 
+---
+
 ## 📄 Licencia
 
 Este proyecto está licenciado bajo la Licencia MIT - vea el archivo [LICENSE](LICENSE) para más detalles.
